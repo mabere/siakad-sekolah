@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+@layer base {
+    /* Keep visible native form controls distinguishable from their container. */
+    input:not([type='hidden']):not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='button']):not([type='submit']):not([type='reset']):not([type='image']),
+    select,
+    textarea {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #cbd5e1;
+    }
+}
+
+/* The admin document completion form is reserved for offline registrations. */
+.ppdb-online-detail form[wire\:submit="uploadDocument"] {
+    display: none;
+}
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.rich-text-editor trix-editor {
+    min-height: 18rem;
+    padding: 1rem;
+    color: #1e293b;
+    font-size: 0.875rem;
+    line-height: 1.75;
+}
+
+.rich-text-editor trix-editor:focus {
+    outline: none;
+}
